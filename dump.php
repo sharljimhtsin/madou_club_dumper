@@ -7,7 +7,7 @@
 require_once "aes.php";
 require_once "curl.php";
 
-echo "start";
+echo "start\n";
 //https://madou.club/hongkongdoll-%e5%8d%95%e4%ba%ba%e9%9b%86-%e7%8b%ac%e8%87%aa%e7%bb%83%e4%b9%a0.html
 $homeUrl = $argv[1];
 $page1 = curl($homeUrl);
@@ -42,7 +42,7 @@ foreach ($tsFiles[0] as $i => $ts) {
     $tmpFile = fopen($dirName . DIRECTORY_SEPARATOR . "ts" . DIRECTORY_SEPARATOR . $ts, "w+");
     curl($hostName . $tsUrl, $homeUrl, true, $tmpFile);
     fclose($tmpFile);
-    echo $ts . " downloaded";
+    echo $ts . " downloaded\n";
 }
 // decrypt AES with key
 $key = file_get_contents($dirName . DIRECTORY_SEPARATOR . "ts.key");
@@ -52,7 +52,7 @@ foreach ($tsFiles[0] as $i => $ts) {
     $msg = sodium_bin2base64($ts, SODIUM_BASE64_VARIANT_ORIGINAL);
     $data = decrypt_openssl($msg, $key);
     file_put_contents($path, $data);
-    echo $ts . " decrypted";
+    echo $ts . " decrypted\n";
 }
 
 echo "OK";
