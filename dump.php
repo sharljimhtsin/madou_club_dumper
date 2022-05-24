@@ -48,8 +48,8 @@ foreach ($tsFiles[0] as $i => $ts) {
 $key = file_get_contents($dirName . DIRECTORY_SEPARATOR . "ts.key");
 foreach ($tsFiles[0] as $i => $ts) {
     $path = $dirName . DIRECTORY_SEPARATOR . "ts" . DIRECTORY_SEPARATOR . $ts;
-    $ts = file_get_contents($path);
-    $msg = sodium_bin2base64($ts, SODIUM_BASE64_VARIANT_ORIGINAL);
+    $tsData = file_get_contents($path);
+    $msg = sodium_bin2base64($tsData, SODIUM_BASE64_VARIANT_ORIGINAL);
     $data = decrypt_openssl($msg, $key);
     file_put_contents($path, $data);
     echo $ts . " decrypted\n";
