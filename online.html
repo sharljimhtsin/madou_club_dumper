@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html class="playbody">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="renderer" content="webkit">
+        <title>私人玩物1 傲娇御姐吸精女神 高梨遥香.TS在线播放</title>
+        <link rel="stylesheet" href="https://dash.madou.club/stylesheets/style.css">
+        <link rel="stylesheet" href="https://dash.madou.club/stylesheets/DPlayer.min.css">
+    </head>
+    
+    <body class="playbody">
+        <div id="player">
+
+        </div>
+        
+        <p class="level">2</p>
+        <script src="https://dash.madou.club/javascripts/fixie.js"></script>
+        <script src="https://dash.madou.club/javascripts/hls.min.js"></script>
+        <script src="https://dash.madou.club/javascripts/DPlayer.min.js"></script>
+        <script src="https://dash.madou.club/javascripts/jquery.min.js"></script>
+        <script src="https://dash.madou.club/layer/layer.js"></script>
+        
+        <div class="hidden"></div>
+
+<script>
+  var antiurl = "https://madou.club";
+  var parenturl = antiurl;
+  var categoryantiurl = "";
+  var antiarr = antiurl.split(",");
+  var open = "";
+  var categoryantiarr = categoryantiurl.split("|");
+  var anti= false;
+  var level = $(".level").text();
+  var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJ2aWV3IiwiaWF0IjoxNjUzMzI0MTk1LCJleHAiOjE2NTMzMjQyOTV9.l6ksGhNPR8BkfqQMLY7TT0CSeU7HM--IsBRUWWgVoAg";
+  var m3u8 = 'https://dash.madou.club/videos/627bcccf2d2a6c463d78646e/index.m3u8';
+  if(token!=''){
+    m3u8 = m3u8+'?token='+token;
+  } 
+  if(open=="on"){
+    anti = false;
+  } else {
+    if(categoryantiurl!="") {
+      if(parenturl== null) {
+        anti = true;
+      } else {
+        for(var i=0;i<categoryantiarr.length;i++) {
+          if(parenturl.indexOf(categoryantiarr[i])==0) {
+            anti = false;
+            break;
+          } else {
+            anti = true;
+          }
+        }
+      }
+    } else {
+      if(antiurl != ""){
+        if(parenturl == null) {
+          anti = true;
+        } else {
+          for(var i=0;i<antiarr.length;i++) {
+            if(parenturl.indexOf(antiarr[i])==0) {
+              anti = false;
+              break;
+            } else {
+              anti = true;
+            }
+          }
+        }
+      }
+    }
+  }
+  if(!anti){
+    var dp = new DPlayer({
+        container: document.getElementById('player'),
+        screenshot: true,
+        lang:  'zh-cn',
+        autoplay: false,
+        logo: '',
+        mutex: true,
+        video: {
+            url: m3u8,
+            pic: 'https://dash.madou.club/videos/627bcccf2d2a6c463d78646e/poster.jpg',
+            thumbnails: 'https://dash.madou.club/videos/627bcccf2d2a6c463d78646e/thumbnails.jpg',
+            type: 'hls'
+        },
+        hlsjsConfig: {
+            debug: false,
+            // Other hlsjsConfig options provided by hls.js
+            p2pConfig: {
+                logLevel: false,
+                // Other p2pConfig options provided by CDNBye
+            }
+        },
+    });
+    var ad = $(".adwrap").html();
+    dp.on('canplay',function () {
+      $(".dplayer-video-wrap").find(".wenziad").remove();
+      $(".dplayer-video-wrap").append(ad);
+      $(".adwrap").remove();
+      $(".dplayer-video").attr("x5-video-player-type","h5");
+      $(".dplayer-video").attr("x5-video-orientation","landscape");
+      $(".dplayer-video").attr("x5-video-player-fullscreen","true");
+    });
+  } else {
+    layer.msg('无权播放此视频');
+  }
+  </script>
+  <style>#p2pserver{
+    display:none;
+  }
+  </style>
+  </body>
+  </html>

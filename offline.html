@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html class="playbody">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="renderer" content="webkit">
+        <title>私人玩物1 傲娇御姐吸精女神 高梨遥香.TS在线播放</title>
+        <link rel="stylesheet" href="https://dash.madou.club/stylesheets/style.css">
+        <link rel="stylesheet" href="https://dash.madou.club/stylesheets/DPlayer.min.css">
+    </head>
+    
+    <body class="playbody">
+        <div id="player">
+
+        </div>
+        
+        <p class="level">2</p>
+        <script src="https://dash.madou.club/javascripts/fixie.js"></script>
+        <script src="https://dash.madou.club/javascripts/hls.min.js"></script>
+        <script src="https://dash.madou.club/javascripts/DPlayer.min.js"></script>
+        <script src="https://dash.madou.club/javascripts/jquery.min.js"></script>
+        <script src="https://dash.madou.club/layer/layer.js"></script>
+        
+        <div class="hidden"></div>
+
+<script>
+  var open = "";
+  var anti= false;
+  var m3u8 = 'http://127.0.0.1/2022-05-24 12_49_36/ts/index.m3u8';
+  if(!anti){
+    var dp = new DPlayer({
+        container: document.getElementById('player'),
+        screenshot: true,
+        lang:  'zh-cn',
+        autoplay: false,
+        logo: '',
+        mutex: true,
+        video: {
+            url: m3u8,
+            pic: 'http://127.0.0.1/2022-05-24 12_49_36/poster.jpg',
+            thumbnails: 'http://127.0.0.1/2022-05-24 12_49_36/poster.jpg',
+            type: 'hls'
+        },
+        hlsjsConfig: {
+            debug: true,
+            // Other hlsjsConfig options provided by hls.js
+            p2pConfig: {
+                logLevel: false,
+                // Other p2pConfig options provided by CDNBye
+            }
+        },
+    });
+    var ad = $(".adwrap").html();
+    dp.on('canplay',function () {
+      $(".dplayer-video-wrap").find(".wenziad").remove();
+      $(".dplayer-video-wrap").append(ad);
+      $(".adwrap").remove();
+      $(".dplayer-video").attr("x5-video-player-type","h5");
+      $(".dplayer-video").attr("x5-video-orientation","landscape");
+      $(".dplayer-video").attr("x5-video-player-fullscreen","true");
+    });
+  } else {
+    layer.msg('无权播放此视频');
+  }
+  </script>
+  <style>#p2pserver{
+    display:none;
+  }
+  </style>
+  </body>
+  </html>
